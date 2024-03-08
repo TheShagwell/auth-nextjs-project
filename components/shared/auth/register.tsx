@@ -110,7 +110,7 @@ export default function RegisterForm({}: Props) {
           />
         </div>
         <Button type="submit" className='w-full'  disabled={pending}>
-          {loading ? 'loading...' : 'Register'}
+          {loading ? 'loading...' : 'login'}
         </Button>
       </form>
     </Form>
