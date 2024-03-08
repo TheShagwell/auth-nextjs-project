@@ -26,10 +26,10 @@ import { useFormStatus } from 'react-dom'
 import { useRouter } from 'next/navigation'
 
 export default function LoginForm({}: Props) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({})
 
-  const router = useRouter();
 
   const form = useForm({
     resolver: zodResolver(loginSchema),
@@ -69,7 +69,7 @@ export default function LoginForm({}: Props) {
       console.log(d)
       if (d.isSuccess === true) {
         console.log(response.data.data.message);
-        router.push("/dashBoard");
+        router.push("/");
         setLoading(!loading);
         localStorage.setItem("token", response.jwtToken?.toString()); // Optional chaining
         console.log(localStorage.getItem("token"));
