@@ -68,10 +68,10 @@ export default function LoginForm({}: Props) {
       const d = response.data;
       console.log(d)
       if (d.isSuccess === true) {
-        console.log(response.data.data.message);
+        console.log(response.data.message);
         router.push("/");
         setLoading(!loading);
-        localStorage.setItem("token", response.jwtToken?.toString()); // Optional chaining
+        localStorage.setItem("token", response.jwtToken.toString()); // Optional chaining
         console.log(localStorage.getItem("token"));
       } else {
         console.log(d.message);
