@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
-import { registerSchema } from '@/lib/validators/register.schema'
+import { registerSchema, RegisterSchema } from '@/lib/validators/register.schema'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
@@ -37,7 +37,7 @@ export default function RegisterForm({}: Props) {
     }
   })
 
-  const onSubmit = (data: z.infer<typeof registerSchema>) => {
+  const onSubmit = (data: RegisterSchema) => {
     console.log(data)
   }
 
