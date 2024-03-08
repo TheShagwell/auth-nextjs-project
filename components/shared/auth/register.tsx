@@ -3,6 +3,16 @@ import AuthCardWrapper from './auth-card-wrapper'
 
 type Props = {}
 
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+
 export default function RegisterForm({}: Props) {
   return (
     <AuthCardWrapper
