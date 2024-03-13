@@ -24,8 +24,9 @@ import { z } from 'zod'
 import axios from 'axios';
 import { useFormStatus } from 'react-dom'
 import { useRouter } from 'next/navigation'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 // import { Text } from "rizzui"
 
 
@@ -74,7 +75,7 @@ export default function LoginForm({}: Props) {
       if (d.isSuccess === true) {
         console.log(response.data.message);
         router.push("/dashboard");
-        toast.success(response.data.message);
+        toast.success(`${response.data.message} You are logged In.`);
         setLoading(!loading);
         localStorage.setItem("token", response.jwtToken.toString()); // Optional chaining
         console.log(localStorage.getItem("token"));
@@ -83,18 +84,25 @@ export default function LoginForm({}: Props) {
         setLoading(!loading);
       }
     } catch (error) {
-      {/*if (axios.isAxiosError(error)) {
-        if (error.response) {
-          // Handle server-side errors
-          console.error('Server error:', error.message);
-        } else if (error.request) {
-          // Handle request-related errors
-          console.error('Request error:', error.request);
-        } else {
-          // Handle other Axios errors
-          console.error('Axios error:', error.message);
-        }
-      }*/}
+      // toast.error(`${error.message} You are logged In.`);
+      // if (
+      //   typeof error === "object" &&
+      //   error &&
+      //   "message" in error &&
+      //   typeof error.message === "string"
+      // )
+      // if (axios.isAxiosError(error)) {
+      //   if (error.response) {
+      //     // Handle server-side errors
+      //     console.error('Server error:', error.message);
+      //   } else if (error.request) {
+      //     // Handle request-related errors
+      //     console.error('Request error:', error.request);
+      //   } else {
+      //     // Handle other Axios errors
+      //     console.error('Axios error:', error.message);
+      //   }
+      // }
     }finally {
        setLoading(false);
      }
@@ -148,7 +156,7 @@ export default function LoginForm({}: Props) {
         {/* <Text className=" leading-[1.85] text-gray-700 md:leading-loose lg:pe-8 2xl:pe-14">
             Hello Poland!
         </Text> */}
-    <ToastContainer autoClose={8000} />
+    <Toaster />
       </form>
     </Form>
     </AuthCardWrapper>
