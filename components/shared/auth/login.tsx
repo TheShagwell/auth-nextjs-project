@@ -73,9 +73,9 @@ export default function LoginForm({}: Props) {
       const d = response.data;
       console.log(d)
       if (d.isSuccess === true) {
-        console.log(response.data.message);
+        console.log(d.message);
         router.push("/dashboard");
-        toast.success(`${response.data.message} You are logged In.`);
+        toast.success(`${d.message} You are logged In.`);
         setLoading(!loading);
         localStorage.setItem("token", response.jwtToken.toString()); // Optional chaining
         console.log(localStorage.getItem("token"));
