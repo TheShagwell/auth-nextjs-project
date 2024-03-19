@@ -84,6 +84,9 @@ export default function LoginForm({}: Props) {
         setLoading(!loading);
       }
     } catch (error) {
+      // Handle errors here
+      // toast.error(`${error.message} You are logged In.`)
+    
       // toast.error(`${error.message} You are logged In.`);
       // if (
       //   typeof error === "object" &&
