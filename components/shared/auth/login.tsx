@@ -54,11 +54,6 @@ export default function LoginForm({}: Props) {
   
     try {
       interface LoginResponse {
-        // isSuccess: boolean;
-        // jwtToken?: string;
-        // message?: string;
-        // data?: any
-
         isSuccess: true;
         message: string;
         messageCode: string;
