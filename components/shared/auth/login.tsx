@@ -116,7 +116,7 @@ export default function LoginForm({}: Props) {
               <FormItem>
                 <FormLabel>UserId</FormLabel>
                 <FormControl>
-                  <Input {...field} type='text' placeholder='asake.dominic@example.com'/>
+                  <Input {...field} type='text' placeholder='asake.dominic@gmail.com'/>
                 </FormControl>
                 <FormMessage/>
               </FormItem>
