@@ -12,6 +12,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    // Add it now
+    // "useUnknownInCatchVariables": false,
     "plugins": [
       {
         "name": "next"
