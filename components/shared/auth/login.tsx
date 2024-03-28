@@ -141,7 +141,7 @@ export default function LoginForm({}: Props) {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input {...field} type='password' placeholder='*******'/>
+                  <Input {...field} type='password' placeholder='********'/>
                 </FormControl>
                 <FormMessage/>
               </FormItem>
