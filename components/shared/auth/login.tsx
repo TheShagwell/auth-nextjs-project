@@ -45,7 +45,7 @@ export default function LoginForm({}: Props) {
   const onSubmit = async (data: LoginSchema) => {
     setLoading(true);
     setData(data);
-    console.log(data);
+    // console.log(data);
   
     try {
       interface LoginResponse {
@@ -61,16 +61,16 @@ export default function LoginForm({}: Props) {
       
   
       const d = response.data;
-      console.log(d)
+      // console.log(d)
       if (d.isSuccess === true) {
-        console.log(d.message);
+        // console.log(d.message);
         router.push("/dashboard");
         toast.success(`${d.message} You are logged In.`);
         setLoading(!loading);
         localStorage.setItem("token", response.jwtToken.toString()); // Optional chaining
         console.log(localStorage.getItem("token"));
       } else {
-        console.log(d.message);
+        // console.log(d.message);
         setLoading(!loading);
         toast.error(`Login Failed! ${d.message}`, {
           position: "top-center",
