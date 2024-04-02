@@ -42,13 +42,6 @@ export default function LoginForm({}: Props) {
     }
   })
 
-  // interface Errors {
-  //   message: string;
-  //   // messageCode: string;
-  //   messageCode: Record<string, string[]>;
-  // }
-  
-
   const onSubmit = async (data: LoginSchema) => {
     setLoading(true);
     setData(data);
