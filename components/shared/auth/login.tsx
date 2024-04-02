@@ -20,11 +20,12 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { z } from 'zod'
-import axios from 'axios';
+import { string, z } from 'zod'
+import axios, { AxiosError } from 'axios';
 import { useFormStatus } from 'react-dom'
 import { useRouter } from 'next/navigation'
 import toast, { Toaster } from 'react-hot-toast';
+// import  { isAxiosError } from 'axios';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { Text } from "rizzui"
@@ -45,6 +46,11 @@ export default function LoginForm({}: Props) {
     }
   })
 
+  // interface Errors {
+  //   message: string;
+  //   // messageCode: string;
+  //   messageCode: Record<string, string[]>;
+  // }
   
 
   const onSubmit = async (data: LoginSchema) => {
@@ -77,30 +83,16 @@ export default function LoginForm({}: Props) {
       } else {
         console.log(d.message);
         setLoading(!loading);
+        toast.error(`Login Failed! ${d.message}`, {
+          position: "top-center",
+        })
       }
     } catch (error) {
-      // Handle errors here
-      // toast.error(`${error.message} You are logged In.`)
-    
-      // toast.error(`${error.message} You are logged In.`);
-      // if (
-      //   typeof error === "object" &&
-      //   error &&
-      //   "message" in error &&
-      //   typeof error.message === "string"
-      // )
-      // if (axios.isAxiosError(error)) {
-      //   if (error.response) {
-      //     // Handle server-side errors
-      //     console.error('Server error:', error.message);
-      //   } else if (error.request) {
-      //     // Handle request-related errors
-      //     console.error('Request error:', error.request);
-      //   } else {
-      //     // Handle other Axios errors
-      //     console.error('Axios error:', error.message);
-      //   }
-      // }
+      if (axios.isAxiosError(error))
+      {
+        const err = error as AxiosError
+        toast.error(`Login Failed!, ${err.message}`)
+      }
     }finally {
        setLoading(false);
      }
