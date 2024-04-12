@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <main>
       {/* <SleepScreen /> */}
-      <p>Main page</p>
+      <p>Main pages</p>
       <Select>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select a fruit" />
@@ -64,6 +64,9 @@ export default function Home() {
         </SelectGroup>
       </SelectContent>
     </Select>
+    
+    
+
     </main>
   );
 }
