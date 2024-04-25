@@ -63,7 +63,6 @@ export default function LoginForm({}: Props) {
       const d = response.data;
       // console.log(d)
       if (d.isSuccess === true) {
-        // console.log(d.message);
         router.push("/dashboard");
         toast.success(`${d.message} You are logged In.`);
         setLoading(!loading);
