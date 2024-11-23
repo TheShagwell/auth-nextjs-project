@@ -51,6 +51,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
         
         {/* <PlaidLink user={user} /> */}
       </nav>
+      <h4>{user.firstName}</h4>
 
       {/* <Footer user={user} /> */}
     </section>
